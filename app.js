@@ -24,7 +24,7 @@ bot.dialog('/', function (session) {
         .attachmentLayout(builder.AttachmentLayout.carousel)
         .attachments(cards);
 
-    session.send(reply);
+    session.send('hello!');
 });
 
 function getSimpleCardsAttachments(session) {
