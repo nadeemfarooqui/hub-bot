@@ -40,7 +40,7 @@ function getCardsAttachments(session) {
             .title("2016's Spooktacular Costumes and Decorations")
             .text("From Japan to San Jose HQ, heres our global Halloween spirit caught on camera.")
             .images([
-                builder.CardImage.create(session, 'https://drive.google.com/file/d/0B-NGOvtFqq-yRmQ2SjZnMVhTNGs/preview')
+                builder.CardImage.create(session, 'https://lh4.googleusercontent.com/f0nGtJFK2ZA74paeZ3fm0Q3XjruMqtsyhyFJ59X2uBs4hdihb35SeRV41UF_VYsTlzX9CNIWTvXSPug=w2880-h1468')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10292/', 'More')
@@ -51,7 +51,7 @@ function getCardsAttachments(session) {
             .subtitle('Blazing fast, planet-scale NoSQL')
             .text('Sales jump on eBay in conjunction with the popular BBC show.')
             .images([
-                builder.CardImage.create(session, 'https://drive.google.com/file/d/0B-NGOvtFqq-yRXo5RUxYWFU3Vk0/preview')
+                builder.CardImage.create(session, 'https://lh3.googleusercontent.com/zpMaSXShmOaEoumjnOk2LNCDgHuUBF2RA-NXeNfwgEu2dRrXDA_V_eiH--8xmSaRFGtQBo7-OdPQYl0=w2880-h1468')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10295/', 'More')
@@ -61,7 +61,7 @@ function getCardsAttachments(session) {
             .title('U.S. Benefits Open Enrollment')
             .text('Open Enrollment (Nov. 1-11) is the time to make sure your benefits coverage keeps up with your needs.')
             .images([
-                builder.CardImage.create(session, 'https://drive.google.com/file/d/0B-NGOvtFqq-yV2FHODNJODdPQWM/preview')
+                builder.CardImage.create(session, 'https://lh4.googleusercontent.com/Y78bwHbiqGL8M24YQ8OZVF3DoMifTsX2WZXvvPh89WjLGPTYPkb88vyQ1GYMnkLQMYGdgx35ku1suyE=w2880-h1468')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10283/', 'More')
