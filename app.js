@@ -72,7 +72,7 @@ function getCardsAttachments(session) {
             .subtitle('Build powerful intelligence into your applications to enable natural and contextual interactions')
             .text('Enable natural and contextual interaction with tools that augment users\' experiences using the power of machine-based intelligence. Tap into an ever-growing collection of powerful artificial intelligence algorithms for vision, speech, language, and knowledge.')
             .images([
-                builder.CardImage.create(session, 'https://drive.google.com/file/d/0B-NGOvtFqq-yWWJuazNzQVhNTFk/preview')
+                builder.CardImage.create(session, 'https://lh4.googleusercontent.com/0_xFAozSGi9iMam_2K4JH-tNeSwOzoZsOT1kgYiHtZQhJMLsAKXMKKKVJsqnn-6EsXrIcpWrNynqA3E=w2880-h1468')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10279/ ', 'More')
