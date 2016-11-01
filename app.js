@@ -17,7 +17,7 @@ server.post('/api/messages', connector.listen());
 
 // Bot dialog
 bot.dialog('/', function (session) {
-    var cards = getSimpleCardsAttachments();
+    var cards = getCardsAttachments();
 
     // create reply with Carousel AttachmentLayout
     var reply = new builder.Message(session)
@@ -27,59 +27,48 @@ bot.dialog('/', function (session) {
     session.send(reply);
 });
 
-function getSimpleCardsAttachments(session) {
-    return [
-        new builder.ThumbnailCard(session)
-            .title('DocumentDB')
-            .subtitle('Blazing fast, planet-scale NoSQL')
-            .text('NoSQL service for highly available, globally distributed apps—take full advantage of SQL and JavaScript over document and key-value data without the hassles of on-premises or virtual machine-based cloud database options.')            
-    ];
-}
-
 function getCardsAttachments(session) {
     return [
         new builder.HeroCard(session)
-            .title('Azure Storage')
-            .subtitle('Massively scalable cloud storage for your applications')
-            .text('Store and help protect your data. Get durable, highly available data storage across the globe and pay only for what you use.')
+            .title("2016's Spooktacular Costumes and Decorations")
+            .text("From Japan to San Jose HQ, heres our global Halloween spirit caught on camera.")
             .images([
-                builder.CardImage.create(session, 'https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/storage-introduction/20160801042915/storage-concepts.png')
+                builder.CardImage.create(session, 'https://hubpub.corp.ebay.com/sites/default/files/Halloween%20Photo%20Story%20HUB_0.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/storage/', 'Learn More')
+                builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10292/', 'More')
             ]),
 
         new builder.ThumbnailCard(session)
-            .title('DocumentDB')
+            .title("eBay Rises to the \"Bake Off\" Challenge")
             .subtitle('Blazing fast, planet-scale NoSQL')
-            .text('NoSQL service for highly available, globally distributed apps—take full advantage of SQL and JavaScript over document and key-value data without the hassles of on-premises or virtual machine-based cloud database options.')
+            .text('Sales jump on eBay in conjunction with the popular BBC show.')
             .images([
-                builder.CardImage.create(session, 'https://sec.ch9.ms/ch9/29f4/beb4b953-ab91-4a31-b16a-71fb6d6829f4/WhatisAzureDocumentDB_960.jpg')
+                builder.CardImage.create(session, 'https://hubpub.corp.ebay.com/sites/default/files/GBBO%20Image%20HUB.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/documentdb/', 'Learn More')
+                builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10295/', 'More')
             ]),
 
         new builder.HeroCard(session)
-            .title('Azure Functions')
-            .subtitle('Process events with serverless code')
-            .text('Azure Functions is a serverless event driven experience that extends the existing Azure App Service platform. These nano-services can scale based on demand and you pay only for the resources you consume.')
+            .title('U.S. Benefits Open Enrollment')
+            .text('Open Enrollment (Nov. 1-11) is the time to make sure your benefits coverage keeps up with your needs.')
             .images([
-                builder.CardImage.create(session, 'https://azurecomcdn.azureedge.net/cvt-8636d9bb8d979834d655a5d39d1b4e86b12956a2bcfdb8beb04730b6daac1b86/images/page/services/functions/azure-functions-screenshot.png')
+                builder.CardImage.create(session, 'https://hubpub.corp.ebay.com/sites/default/files/bene.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/functions/', 'Learn More')
+                builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10283/', 'More')
             ]),
 
         new builder.ThumbnailCard(session)
-            .title('Cognitive Services')
+            .title('Making everyone a WIN-ner')
             .subtitle('Build powerful intelligence into your applications to enable natural and contextual interactions')
             .text('Enable natural and contextual interaction with tools that augment users\' experiences using the power of machine-based intelligence. Tap into an ever-growing collection of powerful artificial intelligence algorithms for vision, speech, language, and knowledge.')
             .images([
-                builder.CardImage.create(session, 'https://azurecomcdn.azureedge.net/cvt-8636d9bb8d979834d655a5d39d1b4e86b12956a2bcfdb8beb04730b6daac1b86/images/page/services/functions/azure-functions-screenshot.png')
+                builder.CardImage.create(session, 'https://hubpub.corp.ebay.com/sites/default/files/WIN_Group_Picture_crop1476717737861.jpeg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/functions/', 'Learn More')
+                builder.CardAction.openUrl(session, 'https://hub.corp.ebay.com/news/10279/ ', 'More')
             ])
     ];
 }
