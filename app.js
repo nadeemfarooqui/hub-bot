@@ -19,7 +19,7 @@ server.post('/api/messages', connector.listen());
 bot.dialog('/', [
 
     function (session) {
-            session.send('Welcome to the eBay Hub bot!');
+            session.send('Welcome to the Hub bot!');
             builder.Prompts.text(session, 'Reply to hear the latest news...');
     },
 
