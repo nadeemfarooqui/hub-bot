@@ -1,7 +1,7 @@
 {
-  "name": "botbuilder-sample-carouselcards",
+  "name": "hubx-bot",
   "version": "1.0.0",
-  "description": "Bot Builder Sample - Carousel Cards",
+  "description": "Hubx Bot for ebay",
   "main": "index.js",
   "scripts": {
     "start": "node app.js"
