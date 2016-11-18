@@ -1,13 +1,9 @@
+'use strict';
+
 var builder = require('botbuilder');
 var restify = require('restify');
 
-try {
-    var news_lib = require('./news');
-}
-catch (e) {
-    console.log('news file cant be imported');
-    console.log(e);
-}
+let news_lib = require('./news');
 
 // Setup Restify Server
 var server = restify.createServer();

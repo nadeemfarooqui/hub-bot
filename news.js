@@ -1,7 +1,7 @@
 'use strict';
-function fetch_top_news(page_index=0, callback) {
+function fetch_top_news(page_index) {
     result = [];
-    callback(result);
+    return result;
 }
 
 let news = {
