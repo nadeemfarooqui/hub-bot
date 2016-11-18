@@ -1,13 +1,7 @@
 var builder = require('botbuilder');
 var restify = require('restify');
 
-try {
-    var news = require('./news');
-}
-catch (e) {
-    console.log('news file cant be imported');
-    console.log(e);
-}
+
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -42,6 +36,7 @@ bot.dialog('/', [
 ]);
 
 function getTopNews(session, callback) {
+    var news = require('./news');
     news.fetch_top_news(page_index=0, function (result) {
         var hero_cards = []
         result.forEach(function(news){
