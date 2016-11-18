@@ -28,7 +28,7 @@ bot.dialog('/', [
             .title("Hubx Bot")
             .text("Your bot to get information from Hubx.")
             .images([
-                 builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")
+                 builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/4/48/EBay_logo.png")
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
@@ -62,12 +62,8 @@ bot.dialog('/menu', [
         } else {
             session.endDialog();
         }
-    },
-    function (session) {
-        // Reload menu
-        session.replaceDialog('/menu');
     }
-]).reloadAction('reloadMenu', null, { matches: /^(menu|show menu)/i });
+]);
 
 
 bot.dialog('/News', [
