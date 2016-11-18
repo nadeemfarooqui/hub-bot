@@ -11,11 +11,16 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 
+/*
 // Create chat bot
 var connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
+*/
+
+// Create chat bot
+var connector = new builder.ChatConnector();
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
@@ -31,22 +36,14 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "Choose an option:", 'Flip A Coin|Roll Dice|Magic 8-Ball|Quit');
+        builder.Prompts.choice(session, "What can I help you with today?", ["News","Benefits","People-Search","quit"]);
     },
     function (session, results) {
-        switch (results.response.index) {
-            case 0:
-                session.beginDialog('/News');
-                break;
-            case 1:
-                session.beginDialog('/Benefits');
-                break;
-            case 2:
-                session.beginDialog('/People Search');
-                break;
-            default:
-                session.endDialog();
-                break;
+       if (results.response && results.response.entity != '(quit)') {
+            session.beginDialog('/' + results.response.entity);
+        } else {
+            session.send("Good bye!");
+            session.endDialog();
         }
     },
     function (session) {
@@ -57,11 +54,9 @@ bot.dialog('/menu', [
 
 
 bot.dialog('/News', [
-    function (session, args) {
-        builder.Prompts.text(session, "Here are the top news from eBay")
-    },
-    function (session, results) {
-        var entered_reply = results.response.entity;
+    function (session) {
+        session.send("Here are the top news from ebay...");
+        session.sendTyping();
         getTopNews(session, function(result){    
             var latest_news = new builder.Message(session)
                 .attachmentLayout(builder.AttachmentLayout.carousel)
@@ -71,6 +66,20 @@ bot.dialog('/News', [
     }
 ]);
 
+bot.dialog('/Benefits', [
+    function (session) {
+        session.send("Benefits under construction...");
+        session.endDialog();
+    }
+]);
+
+
+bot.dialog('/People-Search', [
+    function (session) {
+        session.send("People-Search under construction...");
+        session.endDialog();
+    }
+]);
 
 function getTopNews(session, callback) {
     news_lib.fetch_top_news(0, function (result) {
