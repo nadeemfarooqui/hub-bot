@@ -1,5 +1,5 @@
 'use strict';
-function fetch_top_news(page_index) {
+function fetch_top_news(page_index, callback) {
     result = [];
     return result;
 }

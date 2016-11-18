@@ -38,7 +38,7 @@ bot.dialog('/', [
 ]);
 
 function getTopNews(session, callback) {
-    news_lib.fetch_top_news(page_index=0, function (result) {
+    news_lib.fetch_top_news(0, function (result) {
         var hero_cards = []
         result.forEach(function(news){
            hero_cards.push(new builder.HeroCard(session)
