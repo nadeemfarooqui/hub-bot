@@ -1,6 +1,14 @@
 var builder = require('botbuilder');
 var restify = require('restify');
-var news = require('./news');
+
+try {
+    var news = require('./news');
+}
+catch (e) {
+    console.log('news file cant be imported');
+    console.log(e);
+}
+
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {

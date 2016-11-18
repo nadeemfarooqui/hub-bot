@@ -1,9 +1,7 @@
 module.exports = {
     fetch_top_news: function (page_index=0, callback) {
         var fs = require('fs');
-        var path = require('path');
-        var filePath = path.join(__dirname, 'json_data/topnews.json');    
-        fs.readFile(filePath, 'utf8', function (err, data) {   
+        fs.readFile('./json_data/topnews.json', 'utf8', function (err, data) {   
             var top_news = []    
             var news;          
             news = JSON.parse(data).data;     
