@@ -1,6 +1,6 @@
 'use strict';
 function fetch_top_news(page_index, callback) {
-    result = [];
+    let result = [];
     return result;
 }
 
