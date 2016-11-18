@@ -1,5 +1,6 @@
 var builder = require('botbuilder');
 var restify = require('restify');
+var news_lib = require('./news');
 
 
 
@@ -36,8 +37,7 @@ bot.dialog('/', [
 ]);
 
 function getTopNews(session, callback) {
-    var news = require('./news');
-    news.fetch_top_news(page_index=0, function (result) {
+    news_lib.fetch_top_news(page_index=0, function (result) {
         var hero_cards = []
         result.forEach(function(news){
            hero_cards.push(new builder.HeroCard(session)
