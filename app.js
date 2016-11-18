@@ -32,7 +32,7 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What can I help you with today?", ["News","Benefits","People-Search","quit"]);
+        builder.Prompts.choice(session, "What are you looking for?", ["News","Benefits","People-Search","quit"]);
     },
     function (session, results) {
        if (results.response && results.response.entity != '(quit)') {
