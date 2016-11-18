@@ -19,23 +19,48 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
-// Bot dialog
-bot.dialog('/', [
+bot.dialog('/menu', [
     function (session) {
-            session.send('Welcome to the Hub bot!');
-            builder.Prompts.text(session, 'Reply to hear the latest news...');
+        builder.Prompts.choice(session, "Choose an option:", 'Flip A Coin|Roll Dice|Magic 8-Ball|Quit');
     },
+    function (session, results) {
+        switch (results.response.index) {
+            case 0:
+                session.beginDialog('/News');
+                break;
+            case 1:
+                session.beginDialog('/Benefits');
+                break;
+            case 2:
+                session.beginDialog('/People Search');
+                break;
+            default:
+                session.endDialog();
+                break;
+        }
+    },
+    function (session) {
+        // Reload menu
+        session.replaceDialog('/menu');
+    }
+]).reloadAction('showMenu', null, { matches: /^(menu|back)/i });
 
+
+bot.dialog('/News', [
+    function (session, args) {
+        builder.Prompts.text(session, "Here are the top news from eBay")
+    },
     function (session, results) {
         var entered_reply = results.response.entity;
         getTopNews(session, function(result){    
             var latest_news = new builder.Message(session)
                 .attachmentLayout(builder.AttachmentLayout.carousel)
                 .attachments(result);
-            session.send(latest_news);
+            session.endDialog(latest_news);
         });
     }
 ]);
+
 
 function getTopNews(session, callback) {
     news_lib.fetch_top_news(0, function (result) {
