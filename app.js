@@ -2,7 +2,7 @@ var builder = require('botbuilder');
 var restify = require('restify');
 
 try {
-    var news = require('./news');
+    var news_lib = require('./news');
 }
 catch (e) {
     console.log('news file cant be imported');
@@ -42,7 +42,7 @@ bot.dialog('/', [
 ]);
 
 function getTopNews(session, callback) {
-    news.fetch_top_news(page_index=0, function (result) {
+    news_lib.fetch_top_news(page_index=0, function (result) {
         var hero_cards = []
         result.forEach(function(news){
            hero_cards.push(new builder.HeroCard(session)
