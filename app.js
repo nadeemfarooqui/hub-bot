@@ -19,6 +19,16 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
+bot.dialog('/', [
+    function (session) {
+        session.send("Hello... I'm hubx bot.");
+        session.beginDialog('/menu');
+    },
+    function (session, results) {
+        session.endConversation("Goodbye until next time...");
+    }
+]);
+
 bot.dialog('/menu', [
     function (session) {
         builder.Prompts.choice(session, "Choose an option:", 'Flip A Coin|Roll Dice|Magic 8-Ball|Quit');
