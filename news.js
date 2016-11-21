@@ -10,7 +10,8 @@ function fetch_top_news(page_index, callback) {
              var news_item = {};
              news_item["title"] = each_news.title;
              news_item["subtitile"] = each_news.subTitle;
-             news_item["image_url"] = each_news.absimageUrl.replace('https://hubpub.corp.ebay.com','https://hub.corp.ebay.com');
+             news_item["image_url"] = each_news.absimageUrl
+             //.replace('https://hubpub.corp.ebay.com','https://hub.corp.ebay.com');
              top_news.push(news_item);
          });
          if (page_index > 3) {page_index = 3;}
